@@ -93,11 +93,22 @@ void initialize() {
 
 void routine1(float alpha, float beta) {
 
+    unsigned int routine1_vect();
+
     unsigned int i;
 
+    __m128 Vect_input1, Vect_input2, Vect_output;
+    
+    Vect_input1 = _mm_set_ps(12.345f, 12.345f, 12.345f, 12.345f);
 
     for (i = 0; i < M; i++)
+        Vect_input2 = _mm_loadu_ps(&V2[i]);
+    Vect_output = _mm_storeu_ps(&V1[i], Vect_output);
+
         y[i] = alpha * y[i] + beta * z[i];
+
+        return -1
+
 
 }
 
